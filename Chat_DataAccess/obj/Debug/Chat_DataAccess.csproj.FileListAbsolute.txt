@@ -1,0 +1,2 @@
+D:\materials\现代软件开发技术\WebChat\Chat_DataAccess\obj\Debug\Chat_DataAccess.csproj.AssemblyReference.cache
+D:\materials\现代软件开发技术\WebChat\Chat_DataAccess\obj\Debug\Chat_DataAccess.csproj.CoreCompileInputs.cache

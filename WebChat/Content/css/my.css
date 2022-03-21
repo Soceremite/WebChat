@@ -1,0 +1,167 @@
+﻿.btn {
+    border-radius: 20px;
+    border: solid 1px #eee;
+    background-color: #5BD8D2;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 10%;
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+    padding: 12px 45px;
+}
+
+.input {
+    border-radius: 10px;
+    padding: 15px 15px;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    background: #eee;
+}
+
+.error {
+    margin-left: 18%;
+    color: red;
+}
+
+.shadow_table {
+    width: 800px;
+    margin: auto;
+    padding: 5px;
+    border: 2px solid #EEE;
+    border-bottom-color: #666;
+    border-right-color: #666;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.shadow_text {
+    text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
+    color: whitesmoke;
+}
+
+.th_class {
+    width: 450px;
+}
+
+.row_class {
+    height: 60px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    text-align:center;
+}
+
+.tb_class {
+    height: 30px;
+    border-radius: 5%;
+    border-color: #ff4b2b;
+    border: 2px solid rgba(152, 166, 173, 0.15);
+}
+
+.error {
+    color: red;
+    margin-left:15%;
+}
+
+.ddl {
+    width: 150px;
+    height: 30px;
+    border-width: 2px;
+    border-color: #ff4b2b;
+}
+.my_button {
+    box-shadow: rgb(0 0 0 / 40%) 0px 0px 15px;
+    border-radius: 7px;
+    width: 60px;
+    height: 30px;
+    background-color: black;
+}
+}
+
+.gv_table {
+    margin: auto;
+    padding: 5px;
+    border: 2px solid #EEE;
+    border-bottom-color: #666;
+    border-right-color: #666;
+    text-align: center;
+}
+
+.my_table {
+    margin: auto;
+    padding: 5px;
+    border: 2px solid #EEE;
+    text-align: center;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: #ffffff;
+}
+
+.survey_row {
+}
+
+.mytitle {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 200px;
+    border-radius: 8px;
+}
+
+.mydescription {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 100px;
+    width: 200px;
+    border-radius: 8px;
+}
+
+.my_button {
+    background-color: #3a3f51;
+    border-radius: 8px;
+    color: whitesmoke;
+}
+
+.mytb {
+    width: 100px;
+}
+
+.left_add {
+    float: left;
+    width: 30%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+    min-width: 300px;
+}
+
+.right_list {
+    float: left;
+    width: 60%;
+    background-color: #ffffff;
+}
+
+.my_ddl {
+    width: 40%;
+    border-radius: 8px;
+    height: 30px;
+    min-width: 133px;
+}
+
+.my_saq {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.my_input {
+    border-radius: 8px;
+}

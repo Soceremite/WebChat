@@ -1,0 +1,9 @@
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.csproj.AssemblyReference.cache
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.applychat.resources
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.littletip.resources
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.Login.resources
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.main.resources
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.Properties.Resources.resources
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.winchat.resources
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.csproj.GenerateResource.cache
+D:\materials\现代软件开发技术\WebChat\FormChat\obj\Debug\FormChat.csproj.CoreCompileInputs.cache

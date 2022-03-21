@@ -1,0 +1,5 @@
+D:\materials\现代软件开发技术\WebChat\Chat_Model\bin\Debug\Chat_Model.dll
+D:\materials\现代软件开发技术\WebChat\Chat_Model\bin\Debug\Chat_Model.pdb
+D:\materials\现代软件开发技术\WebChat\Chat_Model\obj\Debug\Chat_Model.csproj.CoreCompileInputs.cache
+D:\materials\现代软件开发技术\WebChat\Chat_Model\obj\Debug\Chat_Model.dll
+D:\materials\现代软件开发技术\WebChat\Chat_Model\obj\Debug\Chat_Model.pdb

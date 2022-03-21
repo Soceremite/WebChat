@@ -1,0 +1,12 @@
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Chat_Common.dll.config
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Chat_Common.dll
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Chat_Common.pdb
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Chat_Model.dll
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Newtonsoft.Json.dll
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Chat_Model.pdb
+D:\materials\现代软件开发技术\WebChat\Chat_Common\bin\Debug\Newtonsoft.Json.xml
+D:\materials\现代软件开发技术\WebChat\Chat_Common\obj\Debug\Chat_Common.csproj.AssemblyReference.cache
+D:\materials\现代软件开发技术\WebChat\Chat_Common\obj\Debug\Chat_Common.csproj.CoreCompileInputs.cache
+D:\materials\现代软件开发技术\WebChat\Chat_Common\obj\Debug\Chat_Common.csproj.CopyComplete
+D:\materials\现代软件开发技术\WebChat\Chat_Common\obj\Debug\Chat_Common.dll
+D:\materials\现代软件开发技术\WebChat\Chat_Common\obj\Debug\Chat_Common.pdb

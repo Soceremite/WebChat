@@ -1,0 +1,166 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Menu.master.cs" Inherits="WebChat.Menu" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/vendors/iconfonts/puse-icons-feather/feather.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/vendors/css/vendor.bundle.addons.css">
+    <!-- endinject -->
+    <link rel="icon" href="1111.ico" type="image/vnd.microsoft.icon"/>
+    <link rel="shortcut icon" href="/Resource/web/logo.ico" type="image/x-icon"/>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/Content/css/style.css">
+    <link rel="stylesheet" href="/Content/css/my.css">
+    <!-- endinject -->
+    <title>Chat</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body style="font-family: YouYuan">
+    <form id="form1" runat="server">
+        <div class="container-scroller">
+            <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-success">
+                <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                    <a class="navbar-brand brand-logo" href="#">
+                        <span style="text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff; color: whitesmoke;">Chat</span>
+
+                        <a class="navbar-brand brand-logo-mini" href="/home.aspx">
+                            <img src="/Resource/web/logo.ico" alt="logo" style="width: 50px; height: 50px" /></a>
+                </div>
+                <div class="navbar-menu-wrapper d-flex align-items-stretch">
+                    <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                    <ul class="navbar-nav">
+                        <li class="nav-item d-none d-lg-block">
+                            <a class="nav-link">
+                                <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-right">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle nav-profile" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                                <asp:Image ID="imguser" runat="server"/>
+                                    <asp:Label ID="lbusername2" runat="server" class="d-none d-lg-inline"></asp:Label>
+                            </a>
+                            <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                                <a class="dropdown-item" style="margin-left:30px" href="#">
+                                    <asp:Button ID="tbcenter" runat="server" class="my_button" style="width:80px" Text="个人中心" OnClick="tbcenter_Click"></asp:Button>
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" style="margin-left:40px" href="#">
+                                    <asp:Button ID="btsignout" runat="server" class="my_button" Text="登出" OnClick="btsignout_Click"></asp:Button>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-settings d-none d-lg-block">
+                            <a class="nav-link" href="#">
+                                <i class="mdi mdi-backburger"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                        <span class="mdi mdi-menu"></span>
+                    </button>
+                </div>
+            </nav>
+            <!-- partial -->
+            <!--右下角 旋转设置按钮-->
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial -->
+                <!-- partial:../../partials/_sidebar.html -->
+                <!-- 侧边栏 -->
+                <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                    <ul class="nav">
+                        <li class="nav-item nav-profile">
+                            <div class="nav-link d-flex">
+                                <div class="profile-image">
+                                    <asp:Image ID="imguser2" runat="server" />
+                                    <span class="online-status online"></span>
+                                    <!--change class online to offline or busy as needed-->
+                                </div>
+                                <div class="profile-name">
+                                    <asp:Label id="lbusername" runat="server" CssClass="name">
+                                    </asp:Label>
+                                    <br />
+                                    <asp:Label id="lbtype" runat="server" class="designation">
+                                    </asp:Label>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item nav-category">
+                            <span class="nav-link">管理员</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
+                                <i class="icon-box menu-icon"></i>
+                                <span class="menu-title">用户管理</span>
+                                <i class="menu-arrow"></i>
+                            </a>
+                            <div class="collapse" id="page-layouts">
+                                <ul class="nav flex-column sub-menu">
+                                    <li class="nav-item"><a class="nav-link" href="/Admin/UserVerify.aspx">用户审核</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/Admin/UserFreeze.aspx">用户冻结</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/Admin/UserUnfreeze.aspx">用户解封</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Admin/Message.aspx">
+                                <i class="icon-paper menu-icon"></i>
+                                <span class="menu-title">消息管理</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- partial -->
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+
+                    </div>
+                    <!-- content-wrapper ends -->
+                    <!-- partial:../../partials/_footer.html -->
+                    <footer class="footer">
+                        <div class="container-fluid clearfix">
+                            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2021 <a href="#" target="_blank">liuyadong</a>. All rights reserved.</span>
+                            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
+                        </div>
+                    </footer>
+                    <!-- partial -->
+                </div>
+                <!-- main-panel ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>
+    </form>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="/vendors/js/vendor.bundle.base.js"></script>
+    <script src="/vendors/js/vendor.bundle.addons.js"></script>
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="/Scripts/menu/off-canvas.js"></script>
+    <script src="/Scripts/menu/hoverable-collapse.js"></script>
+    <script src="/Scripts/menu/misc.js"></script>
+    <script src="/Scripts/menu/settings.js"></script>
+    <script src="/Scripts/menu/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <script src="/Scripts/menu/js/calendar.js"></script>
+    <!-- End custom js for this page-->
+
+</body>
+</html>

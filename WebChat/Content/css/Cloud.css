@@ -1,0 +1,43 @@
+﻿.cloud {
+    position: fixed;
+    bottom: 40px;
+    left: 20px;
+}
+
+    .cloud.fliped img {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+
+    .cloud.pos1 {
+        right: 20px;
+        left: auto;
+        bottom: 70px;
+    }
+
+        .cloud.pos1 img {
+            width: 100px;
+        }
+
+    .cloud.pos2 {
+        bottom: 150px;
+        right: 50px;
+        left: auto;
+    }
+
+        .cloud.pos2 img {
+            width: 150px;
+        }
+
+    .cloud.pos3 {
+        bottom: 200px;
+        left: 120px;
+    }
+
+        .cloud.pos3 img {
+            width: 180px;
+        }

@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6C5E540C-E0FD-41CB-AF81-7C565419D21F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FormChat</RootNamespace>
+    <AssemblyName>FormChat</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CSkin">
+      <HintPath>..\LightTalkBubble\LightTalkBubble-master\LightTalkChatBox\LightTalkChatBox\bin\Debug\CSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="applychat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="applychat.Designer.cs">
+      <DependentUpon>applychat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="littletip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="littletip.Designer.cs">
+      <DependentUpon>littletip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="winchat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="winchat.Designer.cs">
+      <DependentUpon>winchat.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="applychat.resx">
+      <DependentUpon>applychat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="littletip.resx">
+      <DependentUpon>littletip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="winchat.resx">
+      <DependentUpon>winchat.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bg-01.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Chat_Common\Chat_Common.csproj">
+      <Project>{a45742ad-e7c9-42de-8691-c330d8eff016}</Project>
+      <Name>Chat_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chat_DataAccess\Chat_DataAccess.csproj">
+      <Project>{f9bc589c-7850-402e-b231-c343dcf0634e}</Project>
+      <Name>Chat_DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Chat_Model\Chat_Model.csproj">
+      <Project>{49e0fbea-3041-4b99-87a4-97a733df4207}</Project>
+      <Name>Chat_Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightTalkBubble\LightTalkBubble-master\LightTalkChatBox\LightTalkChatBox\LightTalkChatBox.csproj">
+      <Project>{2B53B023-F715-4FF0-AC73-33321F4DE09C}</Project>
+      <Name>LightTalkChatBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LightTalkBubble\LightTalkBubble-master\LightTalkChatBubble\LightTalkChatBubble\LightTalkChatBubble.csproj">
+      <Project>{b247bd26-975d-4e7e-a1de-e4e8a5c70f8f}</Project>
+      <Name>LightTalkChatBubble</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\头像.png" />
+    <Content Include="Resource\upload\admin.jpg" />
+    <Content Include="Resource\upload\cai.jpg" />
+    <Content Include="Resource\upload\liu.jpg" />
+    <Content Include="Resource\upload\user.png" />
+    <Content Include="Resource\upload\wang.jpg" />
+    <Content Include="Resource\web\cloud.png" />
+    <Content Include="Resource\web\logo.ico" />
+    <Content Include="Resource\web\logo.jpg" />
+    <Content Include="Resource\web\search.png" />
+    <Content Include="Resource\web\user.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

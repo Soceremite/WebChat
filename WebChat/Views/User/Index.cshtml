@@ -1,0 +1,234 @@
+﻿@{ ViewBag.Title = "SignalR-聊天室";
+    Layout = "~/Views/Shared/_LayouHiChat.cshtml"; }
+@model WebChat.Models.UserViewModel
+
+<script type="text/javascript">
+    var current_uname = '@Model.Nick';
+    var current_pwd = '@Model.Password';
+    var current_userid = '@Model.UserId';
+    var current_imgurl = '@Model.ImgUrl';
+</script>
+
+<div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row navbar-success">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo" href="#">
+                <span style="text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff; color: whitesmoke;">WebChat</span>
+
+                <a class="navbar-brand brand-logo-mini" href="/home.aspx">
+                    <img src="/Resource/web/logo.ico" alt="logo" style="width: 75px; height: 70px" />
+                </a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
+            <ul class="navbar-nav">
+                <li class="nav-item d-none d-lg-block">
+                    <a class="nav-link">
+                        <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav-profile" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+                        <img src="@Model.ImgUrl"/>
+                        <label for="UserName" class="d-none d-lg-inline"  >@Model.Nick</label>
+                    </a>
+                    <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="#">
+                            <i class="mdi mdi-cached mr-2 text-success"></i>
+                            个人中心
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">
+                            <i class="mdi mdi-logout mr-2 text-primary"></i>
+                            登出
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item nav-settings d-none d-lg-block">
+                    <a class="nav-link" href="#">
+                        <i class="mdi mdi-backburger"></i>
+                    </a>
+                </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <!--右下角 旋转设置按钮-->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial -->
+        <!-- partial:../../partials/_sidebar.html -->
+        <!-- 侧边栏 -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <div class="nav-link d-flex">
+                        <div class="profile-image">
+                            <img src="@Model.ImgUrl" />
+                            <span class="online-status online"></span>
+                            <!--change class online to offline or busy as needed-->
+                        </div>
+                        <div class="profile-name">
+                            <label>@Model.Nick</label>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
+                        <i class="icon-box menu-icon"></i>
+                        <span class="menu-title">好友</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="page-layouts">
+                        <div class="js-li-item" id="friends">
+
+                        </div>
+                    </div>
+                </li>
+                <li  id="friends-apply" class="nav-item">
+                    <a class="nav-link">
+                        <i class="icon-paper menu-icon"  href="#"></i>
+                        <span class="menu-titles">好友申请</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="container js-body">
+                    <div class="row">
+                        <!------大厅窗口-------->
+                        <div class="col-sm-9" id="js-chat-panel" style="display:block;">
+                            <div class="js-chat text-white border-gray">
+                                <div class="js-chat-header bg-grey text-center clearfix">
+                                    <div class="js-txt-nickname pull-left">大厅展示</div>
+                                </div>
+                                <div class="js-chat-body bg-gray" id="js-panel-content" style="height:550px;width:100%;overflow:auto">
+                                </div>
+                                <div class="js-chat-footer clearfix bg-grey">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!------私聊好友窗口--------->
+                        <div class="col-sm-9" id="js-chat-friends" style="display:none">
+                            <div class="js-chat text-white border-gray">
+                                <div class="js-chat-header bg-grey text-center clearfix">
+                                    <div class="js-div-close pull-right">
+                                        <a href="javascript:;" class="text-white js-a-close" id="js-user-close" style="color: white; background-color: #5BD8D2; float:left;width: 50px;height: 40px;text-align: center;">关闭</a>
+                                        <div class="js-friend-title pull-left" style="float:left;margin-left:40%">SignalR-聊天室</div>
+                                    </div>
+
+                                    <input type="hidden" value="" name="hid_touserid" id="hid_touserid" />
+                                </div>
+                                <div class="js-chat-body bg-gray" id="js-friend-content" style="height:550px;width:100%;overflow:auto">
+                                </div>
+                                <div class="js-chat-footer clearfix bg-grey">
+                                    <div class="js-text-msg pull-left" style="width:90%;float:left">
+                                        <input type="text" name="msg" id="txtfriendMsg" placeholder="消息" class="js-text" />
+                                    </div>
+                                    <div class="js-btn-submit pull-right" style="float:left">
+                                        <input type="button" name="btnFriendSend" id="btnFriendSend" value="发送" class="js-submit btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-----------好友申请------------->
+                        <div class="col-sm-9" id="js-apply-panel" style="display:none;">
+                            <div class="js-chat text-white border-gray">
+                                <div class="js-chat-header bg-grey text-center clearfix">
+                                    <div class="js-txt-nickname pull-left">好友申请</div>
+                                </div>
+                                <div class="js-chat-body bg-gray" id="js-panel-content" style="height:550px;width:100%;overflow:auto">
+                                    <li class="hidden-xs am-hide-sm-only">
+                                        <form role="search" class="app-search">
+                                            <div style="margin-left:30%">
+                                                <input id="search-content" type="text" placeholder="Search..." class="form-control" style="width: 35%; box-shadow: rgb(0 0 0 / 40%) 0px 0px 15px; margin: auto;float:left" />
+                                                <a href="javascript:;" class="text-white js-a-close" id="js-user-search" style="color: white; background-color: #5BD8D2; float:left;width: 50px;height: 30px;text-align: center;margin-left: 5%;">搜索</a>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <div algin="center">
+                                        <div id="js-searched-user" style=" width: 60%; height: 200px; background-color: whitesmoke; margin-top: 50px; border-radius: 20px; margin-left: 20%;">
+
+                                        </div>
+                                    </div>
+                                    <div algin="center">
+                                        <div>
+                                            <h3 style="color:black;text-align:center">新朋友</h3>
+                                        </div>
+                                        <div id="js-apply-user" style=" width: 60%; height: 200px; background-color: whitesmoke; margin-top: 10px; border-radius: 20px; margin-left: 20%;">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="js-chat-footer clearfix bg-grey">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!------好友中心窗口-------->
+                        <div class="col-sm-9" id="js-friends-center" style="display:none;">
+                            <div class="js-chat text-white border-gray">
+                                <div class="js-chat-header bg-grey text-center clearfix">
+                                    <a href="javascript:;" class="text-white js-a-close" id="js-user-back" style="color: white; background-color: #5BD8D2; float:left;width: 50px;height: 40px;text-align: center;">返回</a>
+                                    <div class="js-txt-nickname pull-left">好友中心</div>
+                                </div>
+                                <div class="js-chat-body bg-gray" id="js-friend-center" style="height:550px;width:100%;overflow:auto">
+                                    <div align="center" style="margin-top:10%">
+                                        <table style="text-align:center">
+                                            <tr>
+                                                <td colspan="2">
+                                                    <img id="friend-center-img" src="/Resource/upload/admin.jpg" style="height:100px;width:100px" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:black">id</td>
+                                                <td><span id="js-friend-id" style="margin-left:10px;background-color:whitesmoke;color:black"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:black">账号</td>
+                                                <td><span id="js-friend-username" style="margin-left: 10px; background-color: whitesmoke; color: black"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td style="color:black">昵称</td>
+                                                <td><span id="js-friend-nickname" style="margin-left: 10px; background-color: whitesmoke; color: black"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <a href="javascript:;" class="text-white js-a-close" id="js-friend-delete" style="color: white; background-color: #5BD8D2;width: 50px;height: 30px;text-align: center;">删除</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="js-chat-footer clearfix bg-grey">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- content-wrapper ends -->
+            <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+</div>
+
+@section scripts
+{
+    <script src=@Url.Content("~/Scripts/chat/Chat.js") type="text/javascript"></script>
+}
+
+
